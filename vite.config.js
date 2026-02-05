@@ -8,7 +8,8 @@ export default defineConfig({
         VitePWA({
             registerType: 'autoUpdate',
             workbox: {
-                globPatterns: ['**/*.{js,css,html,ico,png,svg,mp3}']
+                globPatterns: ['**/*.{js,css,html,ico,png,svg,mp3,webm}'],
+                maximumFileSizeToCacheInBytes: 50 * 1024 * 1024 // 50MB
             },
             manifest: {
                 name: 'Own Karma',
