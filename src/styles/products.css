@@ -1,0 +1,483 @@
+/* Ultra Luxury Products Page - Starry Night Theme */
+
+.products-page-luxury {
+    min-height: 100vh;
+    height: 100vh;
+    background: #000000;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: radial-gradient(ellipse at center, #0d0d0d 0%, #000000 100%);
+}
+
+/* Animated Starry Background */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: radial-gradient(ellipse at bottom, #0a0a0a 0%, #000000 100%);
+}
+
+.star {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 3s infinite ease-in-out;
+    box-shadow: 0 0 4px #ffffff;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Header - Top Fixed */
+.luxury-header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    z-index: 100;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Header Title - Clean Premium Silver */
+.luxury-header-fixed h1 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 300;
+    letter-spacing: 0.8em;
+    margin: 0;
+    color: #ffffff;
+    opacity: 0.9;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: fadeInDown 2s ease-out;
+    transition: all 0.5s ease;
+}
+
+.luxury-header-fixed h1:hover {
+    opacity: 1;
+    text-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.9em;
+}
+
+/* Footer - Bottom Fixed */
+.luxury-footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    z-index: 100;
+    text-align: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.luxury-footer-fixed p {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    opacity: 0.5;
+    margin: 0;
+    text-transform: uppercase;
+    animation: fadeIn 2s ease-out 0.6s backwards;
+}
+
+/* Products Container - Tighter Layout */
+.products-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 2rem;
+}
+
+.products-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 2rem 0;
+    min-height: 50vh;
+    perspective: 1000px;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+/* Product Card - Stealth Luxury */
+.product-card-luxury {
+    position: relative;
+    aspect-ratio: 2/3;
+    /* Card ratio */
+    width: 280px;
+    /* Fixed width */
+    height: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 0 -40px;
+    /* Strong overlap */
+
+    /* BACKGROUND TRANSPARENCY CONTROL */
+    /* Change the last number (0.95) to adjust transparency (0 = invisible, 1 = solid black) */
+    background: rgba(0, 0, 0, .5);
+
+    /* Performance Optimizations */
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    /* Initial state - Hidden for animation */
+    opacity: 0;
+    visibility: hidden;
+    /* Double insurance */
+}
+
+/* Minimalist Border Glow */
+.product-card-luxury::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    opacity: 1;
+    z-index: 5;
+    pointer-events: none;
+    transition: all 0.6s ease;
+}
+
+.product-card-luxury:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 20px 60px -10px rgba(0, 0, 0, 1),
+        0 0 30px rgba(255, 255, 255, 0.1);
+    /* Subtle silver glow */
+    border-color: rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+
+.product-card-luxury:hover::before {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(125, 211, 251, 0.05);
+}
+
+.product-card-luxury:hover .card-inner {
+    background: rgba(103, 204, 255, 0.04);
+    border-color: rgba(110, 202, 255, 0.15);
+    box-shadow: inset 0 0 50px rgba(90, 214, 245, 0.1);
+}
+
+/* Background Image */
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card-luxury:hover .card-background {
+    transform: scale(1.1);
+}
+
+/* Dark Overlay on Image */
+/* Dark Overlay on Image - Default Dark State */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Normal state: Dimmed */
+    z-index: 1;
+    transition: all 0.6s ease;
+}
+
+.product-card-luxury:hover .card-overlay {
+    background: rgba(0, 0, 0, 0);
+    /* Hover state: Bright/Clear */
+}
+
+.product-card-luxury:hover .card-inner {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Soft Space Glow Effect */
+.card-space-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    /* background: radial-gradient(circle at 50% 50%,
+            rgba(85, 207, 255, 0.15) 0%,
+            rgba(83, 203, 255, 0.1) 25%,
+            rgba(80, 214, 255, 0.08) 50%,
+            transparent 10%); */
+    opacity: 0;
+    z-index: 0;
+    animation: rotateGlow 20s linear infinite;
+    pointer-events: none;
+}
+
+.product-card-luxury:hover .card-space-glow {
+    opacity: 1;
+}
+
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Glow Effect */
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%,
+            var(--card-color, #646464) 0%,
+            transparent 60%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    border-radius: 16px;
+    z-index: 2;
+}
+
+.product-card-luxury:hover .card-glow {
+    opacity: 0.2;
+}
+
+/* Card Content */
+.card-content {
+    position: relative;
+    z-index: 3;
+}
+
+.card-name {
+    font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    transition: all 0.6s ease;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.product-card-luxury:hover .card-name {
+    transform: translateY(-5px);
+    letter-spacing: 0.15em;
+}
+
+.card-tagline {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.6s ease;
+}
+
+.product-card-luxury:hover .card-tagline {
+    opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .product-card-luxury {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-page-luxury {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        justify-content: flex-start;
+    }
+
+    .luxury-header-fixed {
+        padding: 1.5rem 1rem;
+    }
+
+    .luxury-header-fixed h1 {
+        font-size: 1.5rem;
+        letter-spacing: 0.3em;
+    }
+
+    .products-container {
+        padding: 0 1rem;
+        margin-top: 2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .product-card-luxury {
+        max-height: none;
+        aspect-ratio: 3/4;
+    }
+
+    .card-inner {
+        padding: 1.5rem 1rem;
+    }
+
+    .luxury-footer-fixed {
+        padding: 1.5rem 1rem;
+    }
+
+    .luxury-footer-fixed p {
+        font-size: 0.55rem;
+        letter-spacing: 0.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-name {
+        font-size: 1rem;
+    }
+
+    .card-tagline {
+        font-size: 0.6rem;
+    }
+}
+
+/* Premium Touches */
+.product-card-luxury::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            transparent 100%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 10;
+}
+
+.product-card-luxury:hover::before {
+    opacity: 1;
+}
+
+/* Shimmer Effect */
+.product-card-luxury::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) 45%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0.05) 55%,
+            transparent 100%);
+    transform: translateX(-100%) translateY(-100%);
+    transition: transform 0.8s ease;
+    pointer-events: none;
+}
+
+.product-card-luxury:hover::after {
+    transform: translateX(100%) translateY(100%);
+}
